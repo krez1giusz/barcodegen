@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Display Barcodes</title>
+</head>
+<body style="background-color: rgba(0,0,0,0.75);">
+    <h1 style="color:#03a062; text-align:center;">turbo inwenturae</h1>
+    <div>
+        {% for item in items %}
+        <div style="border-bottom:2px solid #03a062; margin: 10px; padding: 10px; display:flex;flex-direction:row; justify-content: space-between;">
+            <div style ="display:flex; flex-direction:column; justify-content: center;align-items: left;text-align: left;">
+                <strong style="color:#03a062">NAZWA</strong>
+                <span style = "color:white">{{ item.name }}</span>
+            </div>
+            <div style ="display:flex;flex-direction:row; gap:100px;">
+                <div style ="display:flex; flex-direction:column; justify-content: center;align-items: center;text-align: center;">
+                    <strong style="color:#03a062">INDEKS</strong> 
+                    <img src="data:image/png;base64,{{ item.index_barcode }}" alt="Index Barcode">
+                </div>
+                <div style ="display:flex; flex-direction:column; justify-content: center;align-items: center;text-align: center;">
+                    <strong style="color:#03a062">STAN</strong> 
+                    <img src="data:image/png;base64,{{ item.amount_barcode }}" alt="Amount Barcode">
+                </div>
+            </div>
+
+        </div>
+        {% endfor %}
+    </div>
+</body>
+</html>
